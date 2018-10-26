@@ -18,9 +18,11 @@ describe('generateLocationMessage', () => {
     let from = 'Ray';
     let latitude = '12345';
     let longitude = '12345';
+    let url = 'https://www.google.com/maps?q='
     message = generateLocationMessage(from, latitude, longitude);
+    
       expect(message.from).toBe(from);
-      expect(message.url).toBe(`https://www.google.com/maps?q=${latitude},${longitude}`);
+      expect(message.url).toBe(`${url}${latitude},${longitude}`);
       expect(typeof message.createdAt).toBe('number');
   });
 });
